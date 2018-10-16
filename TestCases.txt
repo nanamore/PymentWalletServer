@@ -1,45 +1,24 @@
 
 
-Feature: Account Holder withdraws cash
 
-	Scenario: Account has sufficient funds
-	Given the account balance is $100
-     And the card is valid
-     And the machine contains enough money  
-    When the Account Holder requests $20
-    Then the ATM should dispense $20
-     And the account balance should be $80
-     And the card should be returned
-	 
 	 
 Feature: Create Account
 	 
-	Scenario: call save
+	Scenario:  Customer save(Customer c)
 	
-	Given Pass Name And Mobile And Amount
-    When Mobile Number is null
-    Then Mobile Number should not empty
+	Given Pass customer parameter should not null if null
+     Then the throw nullPointerexception
+     And the Should pass object of instanceOf class
+    When the passing object is not instance of customer class
+    Then the throw ClassCastException incompatible types
+     And the pass exception meaningful massage
+     And the return to the caller method
 	
-	Given Pass Name And Mobile And Amount
-	When Name is null
-	Then Name should not be empty
-	
-	Given Pass Name And Mobile And Amount
-	When Amount is null
-	Then Amount should not be empty
-	
-	Given Pass Name And Mobile And Amount
-	When Amount is negative
-	Then Amount should not be negative
-	
-	
-	Given Pass Name And Mobile And Amount
-	When All fields are valid
-	Then Account Created Successfully
+
 	
 	
 	
-	Scenario: call findByMobile
+	Scenario: Customer findByMobile(String mobile)
 	
 	Given Pass Mobile
     When Mobile Number is null
@@ -48,6 +27,69 @@ Feature: Create Account
 	Given Pass Mobile
     When Mobile Number less than 10 digits
     Then Mobile Number should not less than 10 digits
+	
+	
+	Scenario:  Customer addCustomer(String name,String mobile,BigInteger Amount)
+	
+	Given Pass  Mobile
+    When Mobile Number is null
+    Then Mobile Number should not empty
+	
+	Given Pass Mobile
+    When Mobile Number 0.2222222
+    Then Mobile Number should be valid format
+	
+	Given Pass Name 
+	When Name is null
+	Then Name should not be empty
+	
+	Given Pass Name 
+	When Name = ABC1234
+	Then Name allow only string not a number
+	
+	Given Pass  Amount
+	When Amount is null
+	Then Amount should not be empty
+	
+	Given Pass  Amount
+	When Amount = -111
+	Then Amount should not be negative
+	
+	
+	Given Pass Name And Mobile And Amount
+	When All fields are valid
+	Then Account Created Successfully
+	
+	
+	Scenario: String showBalance(String mobile)
+	
+	Given Pass Mobile
+    When Mobile Number is null
+    Then Mobile Number should not empty
+	
+	Given Pass Mobile
+    When Mobile Number less than 10 digits
+    Then Mobile Number should not less than 10 digits
+	
+	Given Pass Mobile
+    When Mobile Number 0.2222222
+    Then Mobile Number should be valid format
+	
+	
+ 
+Scenario: Display customer current balance 
+   Given the passing string mobile number should not null,if null
+    Then the throw nullPointerexception and send valid massage 
+     And the mobile should not negative and should in number format only, if not 
+     And the throw InvalidMobileNumberException 
+    When the passing parameter should be in the form of string only
+    Then the throw incompatible types parameter
+     And the pass exception meaningful massage
+     And the return to the caller method 
+ 
+
+	
+
 	
 	
 	
