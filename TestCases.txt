@@ -1,0 +1,64 @@
+
+
+Feature: Account Holder withdraws cash
+
+	Scenario: Account has sufficient funds
+	Given the account balance is $100
+     And the card is valid
+     And the machine contains enough money  
+    When the Account Holder requests $20
+    Then the ATM should dispense $20
+     And the account balance should be $80
+     And the card should be returned
+	 
+	 
+Feature: Create Account
+	 
+	Scenario: call save
+	
+	Given Pass Name And Mobile And Amount
+    When Mobile Number is null
+    Then Mobile Number should not empty
+	
+	Given Pass Name And Mobile And Amount
+	When Name is null
+	Then Name should not be empty
+	
+	Given Pass Name And Mobile And Amount
+	When Amount is null
+	Then Amount should not be empty
+	
+	Given Pass Name And Mobile And Amount
+	When Amount is negative
+	Then Amount should not be negative
+	
+	
+	Given Pass Name And Mobile And Amount
+	When All fields are valid
+	Then Account Created Successfully
+	
+	
+	
+	Scenario: call findByMobile
+	
+	Given Pass Mobile
+    When Mobile Number is null
+    Then Mobile Number should not empty
+	
+	Given Pass Mobile
+    When Mobile Number less than 10 digits
+    Then Mobile Number should not less than 10 digits
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	 
+	 
+	 
